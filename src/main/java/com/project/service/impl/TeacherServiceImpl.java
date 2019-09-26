@@ -3,6 +3,7 @@ package com.project.service.impl;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.project.model.Teacher;
 import com.project.repository.TeacherRepository;
@@ -11,6 +12,7 @@ import com.project.service.TeacherInterface;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class TeacherServiceImpl implements TeacherInterface {
 
 	@Autowired

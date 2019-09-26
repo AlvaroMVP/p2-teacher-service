@@ -28,13 +28,13 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("api/v1.0")
+@RequestMapping("api/v2.0")
 public class TeacherController {
 	
 	@Autowired
 	private TeacherServiceImpl teacherService;
 	
-	@GetMapping("/student")
+	@GetMapping("/teacher")
 	public Mono<ResponseEntity<Flux<Teacher>>> findAll() {
 		return Mono
 				.just(ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(teacherService.findAll()));
@@ -43,7 +43,7 @@ public class TeacherController {
 	/**
 	 * . method to search students by id
 	 */
-	@GetMapping("/student/{idTeacher}")
+	@GetMapping("/teacher/{idTeacher}")
 	public Mono<ResponseEntity<Teacher>> findById(@PathVariable String idTeacher) {
 		return teacherService.findById(idTeacher)
 				.map(p -> ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(p))
